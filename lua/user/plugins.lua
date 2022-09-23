@@ -1,5 +1,6 @@
 local fn = vim.fn
 
+
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -48,6 +49,11 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use 'navarasu/onedark.nvim'
+  require('onedark').setup {
+      style = 'deep'
+  }
+  require('onedark').load()
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -69,7 +75,6 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-
   -- better buffer deletion
   use "famiu/bufdelete.nvim"
 
@@ -79,7 +84,21 @@ return packer.startup(function(use)
       run = ':TSUpdate'
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use 'nvim-treesitter/nvim-treesitter-context'
 
+
+  -- trouble?
+  use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+          require("trouble").setup {
+              -- your configuration comes here
+              -- or leave it empty to use the default settings
+              -- refer to the configuration section below
+          }
+      end
+  }
 
   -- Autopairs
   use {
@@ -121,6 +140,23 @@ return packer.startup(function(use)
 
   -- Color scheme
   use "liuchengxu/space-vim-theme"
+  use 'marko-cerovac/material.nvim'
+  use { "EdenEast/nightfox.nvim", tag = "v1.0.0" } 
+    -- org mode
+    use {
+        'nvim-orgmode/orgmode', config = function()
+            require('orgmode').setup{}
+        end
+    }
+    require('orgmode').setup_ts_grammar()
+
+
+  -- line
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+      require('lualine').setup()
+  }
 
   -- Mason 
   use { "williamboman/mason.nvim" }

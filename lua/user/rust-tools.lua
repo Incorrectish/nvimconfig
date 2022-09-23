@@ -5,7 +5,7 @@ local opts = {
     tools = { -- rust-tools options
     autoSetHints = true,
     inlay_hints = {
-        show_parameter_hints = false,
+        show_parameter_hints = true,
         parameter_hints_prefix = "",
         other_hints_prefix = "",
     },
@@ -29,3 +29,4 @@ server = {
 },
 }
 require('rust-tools').setup(opts)
+require('rust-tools').inlay_hints.set()

@@ -1,3 +1,4 @@
+require('packer').startup()
 require "user.lsp"
 require "user.rust-tools"
 require "user.cmp"
@@ -20,5 +21,6 @@ require "user.gitsigns"
 require "user.colors"
 require "user.which-key"
 
-vim.cmd "colorscheme space_vim_theme"
+require('rust-tools').inlay_hints.enable()
+vim.cmd "colorscheme onedark"
 vim.cmd "set nohlsearch"

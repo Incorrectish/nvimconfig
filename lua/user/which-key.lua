@@ -86,21 +86,34 @@ local mappings = {
     --[[   "Buffers", ]]
     --[[ }, ]]
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    ["w"] = { "<cmd>w!<CR>", "Save" },
+    -- ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    ["f"] = {
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Find files",
-    },
+    --[[ ["f"] = { ]]
+    --[[     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", ]]
+    --[[     "Find files", ]]
+    --[[ }, ]]
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
     b = {
         name = "Buffer",
         k = { "<cmd>Bdelete<cr>", "Kill"},
-        b = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers" }
+        b = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers" },
+        n = { "<cmd>bnext<cr>", "Next"},
+        p = { "<cmd>bprevious<cr>", "Previous"}
+    },
+
+    w = {
+        name = "Window",
+        c = { "<c-w>c", "Close" },
+        n = { "<c-w>h", "Left" },
+        e = { "<c-w>j", "Down" },
+        i = { "<c-w>k", "Up" },
+        o = { "<c-w>l", "Right" },
+        v = { "<cmd>vsp<cr>", "Vertical Split"},
+        h = { "<cmd>sp<cr>", "Horizontal Split"},
     },
 
     p = {
@@ -171,6 +184,14 @@ local mappings = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols",
         },
+        t = {
+            "<cmd>lua require('rust-tools').inlay_hints.set()<cr>",
+            "Types[Rust]"
+        },
+        h = {
+            "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<cr>",
+            "Hover[Rust]"
+        }
     },
     s = {
         name = "Search",
@@ -189,11 +210,21 @@ local mappings = {
         n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
         u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
         t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-        p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+        P = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+        p = { "<cmd>TroubleToggle<cr>", "Problems" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         o = { "<cmd>ToggleTerm<cr>", "Open"},
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+        d = { "<cmd>TroubleToggle<cr>", "Diagnostics"}
+    },
+
+    f = {
+        name = "Find",
+        f = { "<cmd>Telescope find_files<cr>", "Files"},
+        g = { "<cmd>Telescope live_grep<cr>", "Strings"},
+        b = { "<cmd>Telescope buffers<cr>", "Buffers"},
+        h = { "<cmd>Telescope help_tags<cr>", "Help"},
     },
 }
 
