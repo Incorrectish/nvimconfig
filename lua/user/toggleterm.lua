@@ -69,3 +69,9 @@ local python = Terminal:new({ cmd = "python", hidden = true })
 function _PYTHON_TOGGLE()
 	python:toggle()
 end
+
+local cargo = Terminal:new({ cmd = "cargo run", hidden = true })
+
+function _CARGO_TOGGLE()
+	cargo:toggle()
+end

@@ -191,6 +191,10 @@ local mappings = {
         h = {
             "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<cr>",
             "Hover[Rust]"
+        },
+        c = {
+            name = "Cargo",
+            r = { [[<cmd>TermExec cmd="cargo run"<cr>]], "Run" },
         }
     },
     s = {

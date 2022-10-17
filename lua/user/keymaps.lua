@@ -49,7 +49,7 @@ keymap("n", "<A-S-Up>", "yyk$p", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "qq", "<ESC>", opts)
+--[[ keymap("i", "qq", "<ESC>", opts) ]]
 
 -- Visual --
 -- Stay in indent mode
