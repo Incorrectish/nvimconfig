@@ -23,4 +23,5 @@ require "user.which-key"
 
 require('rust-tools').inlay_hints.enable()
 vim.cmd "colorscheme onedark"
+--[[ vim.cmd "colorscheme nightfox" ]]
 vim.cmd "set nohlsearch"

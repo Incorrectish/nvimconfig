@@ -87,8 +87,8 @@ return packer.startup(function(use)
     use 'nvim-treesitter/nvim-treesitter-context'
     use 'skywind3000/asyncrun.vim'
 
--- Indent blankline
-use "lukas-reineke/indent-blankline.nvim"
+    -- Indent blankline
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- trouble?
     use {
@@ -176,19 +176,19 @@ use "lukas-reineke/indent-blankline.nvim"
             require('gitsigns').setup()
         end
     }
-    
     use "tpope/vim-fugitive"
-
-
-     ---- Michael's plugin to make hoffman easier
-     use 'zhou-michael/cpp-javadoc'
-     require('cpp-javadoc').setup({
-         add_javadoc = '<leader>lcj', -- keybinding to add javadoc
-         silent = true, -- whether or not to print error messages
-         align = true, -- whether or not to align parameter descriptions
-         left_spaces = 4, -- number of spaces between @param tag and parameter name
-         right_spaces = 4, -- number of spaces between parameter name and description
-     })
+    use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+        require('git-conflict').setup()
+    end }
+    ---- Michael's plugin to make hoffman easier
+    use 'zhou-michael/cpp-javadoc'
+    require('cpp-javadoc').setup({
+        add_javadoc = '<leader>lcj', -- keybinding to add javadoc
+        silent = true, -- whether or not to print error messages
+        align = true, -- whether or not to align parameter descriptions
+        left_spaces = 4, -- number of spaces between @param tag and parameter name
+        right_spaces = 4, -- number of spaces between parameter name and description
+    })
 
 
     -- Automatically set up your configuration after cloning packer.nvim
